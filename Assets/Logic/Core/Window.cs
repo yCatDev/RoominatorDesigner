@@ -12,5 +12,6 @@
         public float Height;
         public Direction Direction = 0;
         internal const float BaseWidthConstant = 10;
+        public Wall Wall;
     }
 }

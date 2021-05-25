@@ -11,6 +11,12 @@ namespace Logic.Action
         {
             OnStart();
         }
+        
+        private void LateUpdate()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                OnDeactivate();
+        }
 
         protected abstract void OnStart();
 

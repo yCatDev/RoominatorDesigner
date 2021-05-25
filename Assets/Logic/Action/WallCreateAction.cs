@@ -32,11 +32,7 @@ namespace Logic.Action
                 wc.Delete();
         }
 
-        private void LateUpdate()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-                OnDeactivate();
-        }
+       
 
         protected override void OnClick(Vector3 position)
         {

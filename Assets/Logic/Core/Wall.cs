@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Logic.Core
 {
+    [Serializable]
     public class Wall
     {
         public WallPoint StartPoint;
@@ -19,6 +21,7 @@ namespace Logic.Core
         }
     }
 
+    [Serializable]
     public class WallPoint
     {
         public Vector2 Value;

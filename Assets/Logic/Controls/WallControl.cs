@@ -10,7 +10,8 @@ namespace Logic.Controls
     public class WallControl : ControlBehaviour
     {
         private Wall m_wall;
-        private EdgeCollider2D m_edgeCollider;
+        //private EdgeCollider2D m_edgeCollider;
+        private BoxCollider m_collider;
         private LineRenderer m_lineRenderer;
         [SerializeField] private Mesh sphere;
         [SerializeField] private float minimumAlignDiff = 1f;
@@ -21,7 +22,7 @@ namespace Logic.Controls
         private void Awake()
         {
             m_lineRenderer = GetComponent<LineRenderer>();
-            m_edgeCollider = GetComponent<EdgeCollider2D>();
+            m_collider = GetComponent<BoxCollider>();
         }
 
         protected override bool CanBeSelected()
@@ -38,9 +39,26 @@ namespace Logic.Controls
         {
             var points = new[]
             {
-                m_wall.StartPoint, m_wall.EndPoint
+                m_wall.StartPoint.Value, m_wall.EndPoint.Value
             };
-            m_edgeCollider.points = points.Select(x => x.Value).ToArray();
+         
+
+            /*var size = bounds.size;
+            size.z = 10;*/
+            var size = m_lineRenderer.bounds.size;
+            var dir = points[0]-points[1];
+
+            if (dir.x == 0)
+            {
+                size.x *= 5f;
+            }
+            else
+            {
+                size.y *= 5f;
+            }
+
+            m_collider.size = size;
+            m_collider.center = Helpers.FinalMiddleVector(points[0], points[1]);
         }
 
         public void SetWall(Wall wall)
@@ -211,8 +229,7 @@ namespace Logic.Controls
             m_lineRenderer.SetPosition(0, m_wall.StartPoint.Value);
             m_lineRenderer.SetPosition(1, m_wall.EndPoint.Value);
             UpdateCollider();
-            if (Input.GetKeyDown(KeyCode.Delete) && m_selected)
-                Delete();
+            
 
             if (!m_forceFollow) return;
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -277,6 +294,11 @@ namespace Logic.Controls
         public bool NotFixed()
         {
             return m_wall.StartPoint.IsFixed || m_wall.EndPoint.IsFixed;
+        }
+
+        public Wall GetWall()
+        {
+            return m_wall;
         }
     }
 }

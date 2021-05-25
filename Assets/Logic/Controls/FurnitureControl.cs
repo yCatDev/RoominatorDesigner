@@ -98,12 +98,7 @@ namespace Logic.Controls
         }
 
 
-        private float Diff(Vector2 a, Vector2 b)
-        {
-            var num1 = b.x - a.x;
-            var num2 = a.y - b.y;
-            return  num1 + num2;
-        }
+      
         
         private void Update()
         {
@@ -124,7 +119,8 @@ namespace Logic.Controls
             
             if (m_captured)
             {
-                m_scale = Diff(m_dragOffset,mousePosition);
+                
+                m_scale = Helpers.Diff(m_dragOffset,mousePosition);
                 transform.localScale = m_baseScale+m_baseScale * (m_scale / 10f);
             }
             else

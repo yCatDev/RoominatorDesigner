@@ -69,6 +69,8 @@ namespace Logic.Controls
 
         protected void LateUpdate()
         {
+            if (Input.GetKeyDown(KeyCode.Delete) && m_selected)
+                Delete();
             if (m_selected)
             {
                 UpdateOnSelected();

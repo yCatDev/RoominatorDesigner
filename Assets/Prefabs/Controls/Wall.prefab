@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7795269899060403741}
   - component: {fileID: 7795269899060403740}
   - component: {fileID: 7795269899060403743}
-  - component: {fileID: 9149093912860667596}
-  m_Layer: 0
+  - component: {fileID: 7763713436734414870}
+  m_Layer: 6
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,25 +146,16 @@ MonoBehaviour:
   sphere: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   minimumAlignDiff: 2
   magneticAlign: 2
---- !u!68 &9149093912860667596
-EdgeCollider2D:
+--- !u!65 &7763713436734414870
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7795269899060403742}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 2
-  m_Points:
-  - {x: -0.125, y: 0}
-  - {x: 0.125, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.25, z: 0.25}
+  m_Center: {x: 0, y: 0, z: 1}

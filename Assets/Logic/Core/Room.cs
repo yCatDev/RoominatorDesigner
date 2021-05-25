@@ -11,10 +11,15 @@ namespace Logic.Core
     {
         public List<Wall> Walls;
         public List<Furniture> Furnitures;
+        public List<Window> Windows;
+        public List<Door> Doors;
 
         public Room()
         {
             Walls = new List<Wall>();
+            Furnitures = new List<Furniture>();
+            Windows = new List<Window>();
+            Doors = new List<Door>();
         }
 
 
