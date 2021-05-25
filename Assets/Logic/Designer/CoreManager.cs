@@ -47,7 +47,6 @@ namespace Logic
             var w = 0f;
             var h = 0f;
             var dir = Mathf.Abs((wall.StartPoint.Value - wall.EndPoint.Value).x) <= 0.1f ? Direction.Horizontal : Direction.Vertical;
-            Debug.Log( Mathf.Abs((wall.StartPoint.Value - wall.EndPoint.Value).x)+" "+dir.ToString());
             if (dir==Direction.Horizontal)
             {
                 w = 5;
@@ -64,11 +63,11 @@ namespace Logic
                 Width = w,
                 Height = h,
                 Direction = dir,
-                Wall = wall
+                WallIndex = SelectedRoom.Walls.IndexOf(wall)
             };
             SelectedRoom.Windows.Add(window);
             var contrl = m_factory.CreateWindowControl(window);
-            var clamped = ((Vector3)position).ClampVector(window.Wall.StartPoint.Value, window.Wall.EndPoint.Value);
+            var clamped = ((Vector3)position).ClampVector(wall.StartPoint.Value, wall.EndPoint.Value);
             clamped.z = -1;
             contrl.transform.position = clamped;
             return contrl;
@@ -97,14 +96,74 @@ namespace Logic
                 Width = w,
                 Height = h,
                 Direction = dir,
-                Wall = wall
+                WallIndex = SelectedRoom.Walls.IndexOf(wall)
             };
             SelectedRoom.Doors.Add(door);
             var contrl = m_factory.CreateDoorControl(door);
-            var clamped = ((Vector3)position).ClampVector(door.Wall.StartPoint.Value, door.Wall.EndPoint.Value);
+            var clamped = ((Vector3)position).ClampVector(wall.StartPoint.Value, wall.EndPoint.Value);
             clamped.z = -1;
             contrl.transform.position = clamped;
             return contrl;
         }
+
+        public void RestoreRoom()
+        {
+            foreach (var wall in SelectedRoom.Walls)
+            {
+                CreateWallFrom(wall);
+            }
+
+            foreach (var door in SelectedRoom.Doors)    
+            {
+                CreateDoorFrom(door);
+            }
+
+            foreach (var window in SelectedRoom.Windows)
+            {
+                CreateWindowFrom(window);
+            }
+
+            foreach (var furniture in SelectedRoom.Furnitures)
+            {
+                CreateFurnitureFrom(furniture);
+            }
+        }
+
+        private void CreateFurnitureFrom(Furniture furniture)
+        {
+            var prefab = m_factory.FindFurniture(furniture.Name);
+            if (prefab==null) return;
+            var obj = Instantiate(prefab);
+            obj.transform.position = furniture.Position;
+            obj.transform.localScale = furniture.Scale;
+            obj.transform.localEulerAngles = furniture.Rotation;
+            obj.GetComponent<FurnitureControl>().SetFurniture(furniture);
+        }
+
+        private void CreateWallFrom(Wall wall)
+        {
+            m_factory.CreateWallControl(wall);
+        }
+
+        private void CreateWindowFrom(Window window)
+        {
+            //window.Wall.UpdateList(SelectedRoom.Walls);
+            var contrl = m_factory.CreateWindowControl(window);
+            var wall = SelectedRoom.Walls[window.WallIndex];
+            var clamped = ((Vector3)window.Position).ClampVector(wall.StartPoint.Value, wall.EndPoint.Value);
+            clamped.z = -1;
+            contrl.transform.position = clamped;
+        }
+
+        private void CreateDoorFrom(Door door)
+        {
+            //door.Wall.UpdateList(SelectedRoom.Walls);
+            var contrl = m_factory.CreateDoorControl(door);
+            var wall = SelectedRoom.Walls[door.WallIndex];
+            var clamped = ((Vector3)door.Position).ClampVector(wall.StartPoint.Value, wall.EndPoint.Value);
+            clamped.z = -1;
+            contrl.transform.position = clamped;
+        }
+        
     }
 }

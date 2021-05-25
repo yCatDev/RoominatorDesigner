@@ -9,7 +9,20 @@ namespace Logic.Core
     public class Factory
     {
         [SerializeField] private GameObject wallPrefab, windowPrefab, doorPrefab;
+        [SerializeField] private FurnitureControl[] furnitures;
 
+
+        public GameObject FindFurniture(string name)
+        {
+            foreach (var furniture in furnitures)
+            {
+                if (furniture.name == name)
+                    return furniture.gameObject;
+            }
+
+            return null;
+        }
+        
         public WindowControl CreateWindowControl(Window window)
         {
             var obj = Object.Instantiate(windowPrefab).GetComponent<WindowControl>();
@@ -32,7 +45,7 @@ namespace Logic.Core
         {
             var obj = Object.Instantiate(doorPrefab).GetComponent<DoorControl>();
             obj.transform.position = Vector3.zero;
-            obj.SetWindow(door);
+            obj.SetDoor(door);
             obj.Setup();
             return obj;
         }

@@ -172,7 +172,7 @@ MonoBehaviour:
   Active: 0
   targetLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
   furniturePrefab: {fileID: 0}
   toggle: {fileID: 7141917004115638491}
 --- !u!114 &7141917004115638491

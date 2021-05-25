@@ -25,13 +25,11 @@ namespace Logic.Core
     public class WallPoint
     {
         public Vector2 Value;
-        public WallPoint[] NextPoints;
         public bool IsFixed = true;
 
-        public WallPoint(Vector2 value, bool isFixed, params WallPoint[] points)
+        public WallPoint(Vector2 value, bool isFixed)
         {
             Value = value;
-            NextPoints = points;
             IsFixed = isFixed;
         }
     }

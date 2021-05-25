@@ -1,4 +1,5 @@
 ﻿using Logic.Controls;
+using Logic.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,8 +31,13 @@ namespace Logic.Action
             var obj = Instantiate(furniturePrefab);
             obj.transform.position = position;
             var fc = obj.GetComponent<FurnitureControl>();
-            var furniture = fc.GetFurniture();
+            fc.Setup();
+            var furniture = new Furniture()
+            {
+                Name = furniturePrefab.name,
+            };
             CoreManager.Instance.SelectedRoom.Furnitures.Add(furniture);
+            fc.SetFurniture(furniture);
             toggle.isOn = false;
         }
     }

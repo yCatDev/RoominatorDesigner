@@ -19,10 +19,12 @@ namespace Logic.Controls
         private Vector3 m_baseScale = new Vector3(3,3,3);
         private SpriteRenderer m_spr;
         private Furniture m_furniture;
+        private BoxCollider m_collider;
 
         private void Start()
         {
             Setup();
+            m_collider = GetComponent<BoxCollider>();
         }
 
         protected override bool CanBeUnSelected()
@@ -47,7 +49,6 @@ namespace Logic.Controls
         public override void Setup()
         {
             m_spr = GetComponent<SpriteRenderer>();
-            m_furniture = new Furniture();
         }
 
         private void UpdateCoords()
@@ -103,6 +104,7 @@ namespace Logic.Controls
         
         private void Update()
         {
+            m_furniture.Update(transform.position, transform.localScale, transform.localEulerAngles);
             UpdateCoords();
             //if (!Input.GetMouseButtonDown(0)) return;
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -114,7 +116,7 @@ namespace Logic.Controls
             if (!Input.GetMouseButton(0))
             {
                 m_captured = false;
-                return;
+                return; 
             }
 
             
@@ -152,10 +154,11 @@ namespace Logic.Controls
             pos.z = 0;
             transform.position = pos;
         }
+        
 
-        public Furniture GetFurniture()
+        public void SetFurniture(Furniture furniture)
         {
-            return m_furniture;
+            m_furniture = furniture;
         }
     }
 }

@@ -131,34 +131,7 @@ namespace Logic.Controls
         }
 
 
-        private void RegenerateLinks()
-        {
-            var allWalls = CoreManager.Instance.SelectedRoom.Walls;
-            var startPoint = allWalls[0].StartPoint;
-            Link(startPoint);
-
-            void Link(WallPoint point)
-            {
-                var next = new List<WallPoint>();
-                foreach (var wall in allWalls)
-                {
-                    if (wall.StartPoint.Value == point.Value)
-                    {
-                        next.Add(wall.EndPoint);
-                        if (wall.EndPoint != startPoint)
-                            Link(wall.EndPoint);
-                    }
-                    /*if (wall.EndPoint.Value == point.Value)
-                    {
-                        next.Add(wall.StartPoint);
-                        if (wall.StartPoint != startPoint)
-                            Link(wall.StartPoint);
-                    }*/
-                }
-
-                point.NextPoints = next.ToArray();
-            }
-        }
+      
 
         private void AlignLines()
         {

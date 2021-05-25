@@ -1,8 +1,13 @@
-﻿namespace Logic.Core
+﻿using System;
+using UnityEngine;
+
+namespace Logic.Core
 {
-    public class Furniture
+    
+    [Serializable]
+    public class Furniture: RoomElement
     {
         public string Name;
-        public int Width, Height;
+        
     }
 }

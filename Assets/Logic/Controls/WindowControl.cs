@@ -1,6 +1,7 @@
 ﻿using System;
 using Drawing;
 using Logic.Core;
+using Newtonsoft.Json;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -18,6 +19,8 @@ namespace Logic.Controls
         private float m_baseSize;
         private float m_scale;
         private int m_selectedDragPoint;
+        [JsonIgnore]
+        private Wall Wall => CoreManager.Instance.SelectedRoom.Walls[m_window.WallIndex];
 
         protected override void OnSelectedFirstTime()
         {
@@ -40,6 +43,7 @@ namespace Logic.Controls
 
         private void Update()
         {
+            m_window.Update(transform.position, transform.localScale, transform.localEulerAngles);
             if (m_window == null) return;
 
 
@@ -136,7 +140,7 @@ namespace Logic.Controls
             }
 
             if (m_captured) return;
-            var clamped = mousePosition.ClampVector(m_window.Wall.StartPoint.Value, m_window.Wall.EndPoint.Value);
+            var clamped = mousePosition.ClampVector(Wall.StartPoint.Value, Wall.EndPoint.Value);
             clamped.z = -1;
             transform.position = clamped;
         }
