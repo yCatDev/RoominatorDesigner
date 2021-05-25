@@ -47,6 +47,7 @@ namespace Logic.Controls
         public override void Setup()
         {
             m_spr = GetComponent<SpriteRenderer>();
+            m_furniture = new Furniture();
         }
 
         private void UpdateCoords()
@@ -150,6 +151,11 @@ namespace Logic.Controls
             var pos = mousePosition - m_offset;
             pos.z = 0;
             transform.position = pos;
+        }
+
+        public Furniture GetFurniture()
+        {
+            return m_furniture;
         }
     }
 }
