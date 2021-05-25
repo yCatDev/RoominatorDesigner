@@ -2371,6 +2371,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8162549792869896837, guid: a45db0875c5103d469fac1c527b78abf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162549792869896837, guid: a45db0875c5103d469fac1c527b78abf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162549792869896837, guid: a45db0875c5103d469fac1c527b78abf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1086793460}
+    - target: {fileID: 8162549792869896837, guid: a45db0875c5103d469fac1c527b78abf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162549792869896837, guid: a45db0875c5103d469fac1c527b78abf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ScreenshotRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162549792869896837, guid: a45db0875c5103d469fac1c527b78abf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Logic.Designer.ScreenshotMaker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162549792869896837, guid: a45db0875c5103d469fac1c527b78abf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8162549792869896839, guid: a45db0875c5103d469fac1c527b78abf,
         type: 3}
       propertyPath: m_Name
@@ -3709,6 +3744,102 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1086793459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086793463}
+  - component: {fileID: 1086793462}
+  - component: {fileID: 1086793461}
+  - component: {fileID: 1086793460}
+  m_Layer: 0
+  m_Name: ScreenshotCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1086793460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086793459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63689dbbea2c4a9dbc137ca812ec9b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!81 &1086793461
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086793459}
+  m_Enabled: 1
+--- !u!20 &1086793462
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086793459}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 30
+  m_Depth: -2
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 217
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 0
+  m_HDR: 1
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 0
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1086793463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086793459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1104883405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4947,7 +5078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1ad8992d4843bb94d6d7632767ee6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  json: '{"Walls":[{"StartPoint":{"Value":{"x":-27.9667225,"y":-12.0491476},"IsFixed":true},"EndPoint":{"Value":{"x":-27.9667225,"y":16.741972},"IsFixed":true}},{"StartPoint":{"Value":{"x":-1.07808113,"y":-12.0491476},"IsFixed":true},"EndPoint":{"Value":{"x":-27.9667225,"y":-12.0491476},"IsFixed":true}},{"StartPoint":{"Value":{"x":-1.07808113,"y":16.741972},"IsFixed":true},"EndPoint":{"Value":{"x":-1.07808113,"y":-12.0491476},"IsFixed":true}},{"StartPoint":{"Value":{"x":-27.9667225,"y":16.741972},"IsFixed":true},"EndPoint":{"Value":{"x":-1.07808113,"y":16.741972},"IsFixed":true}}],"Furnitures":[{"Name":"FurnitureBathroom","Position":{"x":-18.0737228,"y":-1.01466608},"Scale":{"x":3.0,"y":3.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}}],"Windows":[{"Width":1.0,"Height":5.0,"Direction":1,"WallIndex":3,"Position":{"x":-14.1418934,"y":16.741972},"Scale":{"x":5.0,"y":1.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}}],"Doors":[{"Width":5.0,"Height":1.0,"Direction":0,"WallIndex":2,"Position":{"x":-1.07808113,"y":5.707494},"Scale":{"x":1.0,"y":5.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}}],"IsRoomShapeCorrect":true}'
+  json: '{"Walls":[{"StartPoint":{"Value":{"x":-39.5085335,"y":-19.7859688},"IsFixed":true},"EndPoint":{"Value":{"x":-39.5085335,"y":18.5176334},"IsFixed":true}},{"StartPoint":{"Value":{"x":-9.702736,"y":-19.7859688},"IsFixed":true},"EndPoint":{"Value":{"x":-39.5085335,"y":-19.7859688},"IsFixed":true}},{"StartPoint":{"Value":{"x":-9.702736,"y":-0.5073344},"IsFixed":true},"EndPoint":{"Value":{"x":-9.702736,"y":-19.7859688},"IsFixed":true}},{"StartPoint":{"Value":{"x":8.941739,"y":-0.5073344},"IsFixed":true},"EndPoint":{"Value":{"x":-9.702736,"y":-0.5073344},"IsFixed":true}},{"StartPoint":{"Value":{"x":8.941739,"y":18.5176334},"IsFixed":true},"EndPoint":{"Value":{"x":8.941739,"y":-0.5073344},"IsFixed":true}},{"StartPoint":{"Value":{"x":-39.5085335,"y":18.5176334},"IsFixed":true},"EndPoint":{"Value":{"x":8.941739,"y":18.5176334},"IsFixed":true}}],"Furnitures":[{"Name":"FurnitureBadDouble","Position":{"x":-30.5033646,"y":9.38565},"Scale":{"x":2.31509972,"y":2.31509972},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Name":"FurnitureSofa-2","Position":{"x":-34.94252,"y":-10.1466522},"Scale":{"x":3.0,"y":3.0},"Rotation":{"x":0.0,"y":0.0,"z":90.0}},{"Name":"FurnitureShelf-Table-Ellipse","Position":{"x":-26.8252068,"y":-9.766153},"Scale":{"x":1.63020325,"y":1.63020325},"Rotation":{"x":0.0,"y":0.0,"z":90.0}},{"Name":"FurnitureShelf-2","Position":{"x":-3.61474514,"y":15.3468122},"Scale":{"x":3.0,"y":3.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Name":"FurnitureCookingTable","Position":{"x":-20.0465412,"y":12.7409515},"Scale":{"x":3.0,"y":3.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}}],"Windows":[{"Width":1.0,"Height":5.0,"Direction":1,"WallIndex":5,"Position":{"x":-33.9278641,"y":18.5176334},"Scale":{"x":5.0,"y":1.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":1.0,"Height":5.0,"Direction":1,"WallIndex":5,"Position":{"x":-16.1712227,"y":18.5176334},"Scale":{"x":5.0,"y":1.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":5.0,"Height":1.0,"Direction":0,"WallIndex":2,"Position":{"x":-9.702736,"y":-10.2734823},"Scale":{"x":1.0,"y":5.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":5.0,"Height":1.0,"Direction":0,"WallIndex":0,"Position":{"x":-39.5085335,"y":-12.8101454},"Scale":{"x":1.0,"y":5.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":5.0,"Height":1.0,"Direction":0,"WallIndex":0,"Position":{"x":-39.5085335,"y":4.81965733},"Scale":{"x":1.0,"y":5.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":1.0,"Height":5.0,"Direction":1,"WallIndex":1,"Position":{"x":-25.68371,"y":-19.7859688},"Scale":{"x":5.0,"y":1.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}}],"Doors":[{"Width":5.0,"Height":1.0,"Direction":0,"WallIndex":4,"Position":{"x":8.941739,"y":9.005152},"Scale":{"x":1.0,"y":5.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}}],"IsRoomShapeCorrect":true}'
 --- !u!4 &1265103929
 Transform:
   m_ObjectHideFlags: 0
