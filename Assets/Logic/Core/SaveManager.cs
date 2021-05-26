@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Runtime.InteropServices;
+using Logic.Designer;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Logic.Core
@@ -6,16 +8,36 @@ namespace Logic.Core
     public class SaveManager : MonoBehaviour
     {
         [SerializeField] private string json;
-        
+
+        [DllImport("__Internal")]
+        private static extern void SaveRoom(string userId, string json);
+
         public void Save()
         {
-            Debug.Log(JsonConvert.SerializeObject(CoreManager.Instance.SelectedRoom));
+            var userId = CoreManager.Instance.UserId;
+            CoreManager.Instance.UserRoom.Json = JsonConvert.SerializeObject(CoreManager.Instance.SelectedRoom);
+            var json =  JsonConvert.SerializeObject(CoreManager.Instance.UserRoom);
+            Debug.Log(json);
+            SaveRoom(userId, json);
         }
 
-        public void Load()
+        public void SetUser(string userId)
         {
-            CoreManager.Instance.SelectedRoom = JsonConvert.DeserializeObject<Room>(json);
+            CoreManager.Instance.UserId = userId;
+        }
+        
+        public void LoadRoom(string json)
+        {
+            if (CoreManager.Instance.Loaded) return;
+            CoreManager.Instance.UserRoom = JsonConvert.DeserializeObject<UserRoom>(json);
+            Debug.Log($"Gotten json: {json}");
             CoreManager.Instance.RestoreRoom();
+            CoreManager.Instance.Loaded = true;
+        }
+
+        public void TestLoad()
+        {
+            LoadRoom(json);
         }
         
     }

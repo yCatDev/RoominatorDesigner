@@ -2,22 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Drawing;
-using Logic.Controls;
-using Logic.Designer;
-using Logic.Dijkstra;
-using QuikGraph;
-using QuikGraph.Algorithms;
-using QuikGraph.Algorithms.Observers;
-using QuikGraph.Algorithms.Search;
-using QuikGraph.Algorithms.ShortestPath;
+
 using TriangleNet;
 using TriangleNet.Geometry;
-using TriangleNet.Meshing;
-using TriangleNet.Meshing.Algorithm;
-using Unity.Mathematics;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Logic.Core
 {

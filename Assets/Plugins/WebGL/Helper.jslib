@@ -6,5 +6,11 @@
         canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
         container.style.display = "block";
+    },
+    
+    SaveRoom: function (userId, json)
+    {
+        window.saveCurrentRoom(Pointer_stringify(userId), Pointer_stringify(json));
     }
+    
 });

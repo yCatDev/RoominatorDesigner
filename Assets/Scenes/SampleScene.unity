@@ -2020,7 +2020,7 @@ PrefabInstance:
     - target: {fileID: 8162549792869896837, guid: a45db0875c5103d469fac1c527b78abf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Load
+      value: TestLoad
       objectReference: {fileID: 0}
     - target: {fileID: 8162549792869896837, guid: a45db0875c5103d469fac1c527b78abf,
         type: 3}
@@ -2831,6 +2831,7 @@ GameObject:
   - component: {fileID: 748715636}
   - component: {fileID: 748715635}
   - component: {fileID: 748715637}
+  - component: {fileID: 748715638}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -2883,6 +2884,12 @@ MonoBehaviour:
     - {fileID: 1608094503653216056, guid: 4fca225a2daec0e4fae78ae906bd3445, type: 3}
     - {fileID: 7866671089255581725, guid: bc29de39bc1d8984480620c2bd869ded, type: 3}
   focusName: 
+  UserId: 
+  UserRoom:
+    Json: 
+    Preview: 
+    Name: 
+    RoomId: 0
 --- !u!4 &748715636
 Transform:
   m_ObjectHideFlags: 0
@@ -2907,6 +2914,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3ff9b25c1274b8d85b5ca3eacfd1530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &748715638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748715634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ac90b2c90248e0b45abfa80be84b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &763781782
@@ -3754,7 +3773,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1086793463}
   - component: {fileID: 1086793462}
-  - component: {fileID: 1086793461}
   - component: {fileID: 1086793460}
   m_Layer: 0
   m_Name: ScreenshotCamera
@@ -3775,14 +3793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63689dbbea2c4a9dbc137ca812ec9b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!81 &1086793461
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086793459}
-  m_Enabled: 1
 --- !u!20 &1086793462
 Camera:
   m_ObjectHideFlags: 0
@@ -5078,7 +5088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1ad8992d4843bb94d6d7632767ee6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  json: '{"Walls":[{"StartPoint":{"Value":{"x":-39.5085335,"y":-19.7859688},"IsFixed":true},"EndPoint":{"Value":{"x":-39.5085335,"y":18.5176334},"IsFixed":true}},{"StartPoint":{"Value":{"x":-9.702736,"y":-19.7859688},"IsFixed":true},"EndPoint":{"Value":{"x":-39.5085335,"y":-19.7859688},"IsFixed":true}},{"StartPoint":{"Value":{"x":-9.702736,"y":-0.5073344},"IsFixed":true},"EndPoint":{"Value":{"x":-9.702736,"y":-19.7859688},"IsFixed":true}},{"StartPoint":{"Value":{"x":8.941739,"y":-0.5073344},"IsFixed":true},"EndPoint":{"Value":{"x":-9.702736,"y":-0.5073344},"IsFixed":true}},{"StartPoint":{"Value":{"x":8.941739,"y":18.5176334},"IsFixed":true},"EndPoint":{"Value":{"x":8.941739,"y":-0.5073344},"IsFixed":true}},{"StartPoint":{"Value":{"x":-39.5085335,"y":18.5176334},"IsFixed":true},"EndPoint":{"Value":{"x":8.941739,"y":18.5176334},"IsFixed":true}}],"Furnitures":[{"Name":"FurnitureBadDouble","Position":{"x":-30.5033646,"y":9.38565},"Scale":{"x":2.31509972,"y":2.31509972},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Name":"FurnitureSofa-2","Position":{"x":-34.94252,"y":-10.1466522},"Scale":{"x":3.0,"y":3.0},"Rotation":{"x":0.0,"y":0.0,"z":90.0}},{"Name":"FurnitureShelf-Table-Ellipse","Position":{"x":-26.8252068,"y":-9.766153},"Scale":{"x":1.63020325,"y":1.63020325},"Rotation":{"x":0.0,"y":0.0,"z":90.0}},{"Name":"FurnitureShelf-2","Position":{"x":-3.61474514,"y":15.3468122},"Scale":{"x":3.0,"y":3.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Name":"FurnitureCookingTable","Position":{"x":-20.0465412,"y":12.7409515},"Scale":{"x":3.0,"y":3.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}}],"Windows":[{"Width":1.0,"Height":5.0,"Direction":1,"WallIndex":5,"Position":{"x":-33.9278641,"y":18.5176334},"Scale":{"x":5.0,"y":1.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":1.0,"Height":5.0,"Direction":1,"WallIndex":5,"Position":{"x":-16.1712227,"y":18.5176334},"Scale":{"x":5.0,"y":1.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":5.0,"Height":1.0,"Direction":0,"WallIndex":2,"Position":{"x":-9.702736,"y":-10.2734823},"Scale":{"x":1.0,"y":5.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":5.0,"Height":1.0,"Direction":0,"WallIndex":0,"Position":{"x":-39.5085335,"y":-12.8101454},"Scale":{"x":1.0,"y":5.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":5.0,"Height":1.0,"Direction":0,"WallIndex":0,"Position":{"x":-39.5085335,"y":4.81965733},"Scale":{"x":1.0,"y":5.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}},{"Width":1.0,"Height":5.0,"Direction":1,"WallIndex":1,"Position":{"x":-25.68371,"y":-19.7859688},"Scale":{"x":5.0,"y":1.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}}],"Doors":[{"Width":5.0,"Height":1.0,"Direction":0,"WallIndex":4,"Position":{"x":8.941739,"y":9.005152},"Scale":{"x":1.0,"y":5.0},"Rotation":{"x":0.0,"y":0.0,"z":0.0}}],"IsRoomShapeCorrect":true}'
+  json: '{"Json":"{\"Walls\":[{\"StartPoint\":{\"Value\":{\"x\":-36.07677,\"y\":-19.3176975},\"IsFixed\":true},\"EndPoint\":{\"Value\":{\"x\":-36.07677,\"y\":19.7654572},\"IsFixed\":true}},{\"StartPoint\":{\"Value\":{\"x\":-4.34967947,\"y\":-19.3176975},\"IsFixed\":true},\"EndPoint\":{\"Value\":{\"x\":-36.07677,\"y\":-19.3176975},\"IsFixed\":true}},{\"StartPoint\":{\"Value\":{\"x\":-4.541578,\"y\":19.7654572},\"IsFixed\":true},\"EndPoint\":{\"Value\":{\"x\":-4.34967947,\"y\":-19.3176975},\"IsFixed\":true}},{\"StartPoint\":{\"Value\":{\"x\":-36.07677,\"y\":19.7654572},\"IsFixed\":true},\"EndPoint\":{\"Value\":{\"x\":-4.541578,\"y\":19.7654572},\"IsFixed\":true}}],\"Furnitures\":[{\"Name\":\"FurnitureBadDouble\",\"Position\":{\"x\":-25.9061852,\"y\":7.35607862},\"Scale\":{\"x\":2.44321156,\"y\":2.44321156},\"Rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}],\"Windows\":[{\"Width\":5.0,\"Height\":1.0,\"Direction\":0,\"WallIndex\":0,\"Position\":{\"x\":-36.07677,\"y\":10.2985058},\"Scale\":{\"x\":1.0,\"y\":5.0},\"Rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}},{\"Width\":5.0,\"Height\":1.0,\"Direction\":0,\"WallIndex\":0,\"Position\":{\"x\":-36.07677,\"y\":-9.019188},\"Scale\":{\"x\":1.0,\"y\":5.0},\"Rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}],\"Doors\":[{\"Width\":1.0,\"Height\":5.19183,\"Direction\":1,\"WallIndex\":1,\"Position\":{\"x\":-22.1321945,\"y\":-19.3176975},\"Scale\":{\"x\":5.19183,\"y\":1.0},\"Rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}],\"IsRoomShapeCorrect\":true}","Preview":"","Name":"","RoomId":41}'
 --- !u!4 &1265103929
 Transform:
   m_ObjectHideFlags: 0

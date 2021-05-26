@@ -4,6 +4,8 @@ using System.Linq;
 using Logic.Action;
 using Logic.Controls;
 using Logic.Core;
+using Logic.Designer;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Logic
@@ -15,6 +17,9 @@ namespace Logic
         public ActionsManager ActionsManager = new ActionsManager();
         public static CoreManager Instance;
         [SerializeField] private string focusName;
+        public string UserId;
+        public UserRoom UserRoom;
+        public bool Loaded = false;
 
         private void Awake()
         {
@@ -24,7 +29,8 @@ namespace Logic
         
         private void Start()
         {
-            SelectedRoom = new Room();
+            if (SelectedRoom==null) 
+                SelectedRoom = new Room();
         }
         
 
@@ -79,7 +85,7 @@ namespace Logic
             var w = 0f;
             var h = 0f;
             var dir = Mathf.Abs((wall.StartPoint.Value - wall.EndPoint.Value).x) <= 0.1f ? Direction.Horizontal : Direction.Vertical;
-            Debug.Log( Mathf.Abs((wall.StartPoint.Value - wall.EndPoint.Value).x)+" "+dir.ToString());
+           // Debug.Log( Mathf.Abs((wall.StartPoint.Value - wall.EndPoint.Value).x)+" "+dir.ToString());
             if (dir==Direction.Horizontal)
             {
                 w = 5;
@@ -108,6 +114,8 @@ namespace Logic
 
         public void RestoreRoom()
         {
+            SelectedRoom = JsonConvert.DeserializeObject<Room>(UserRoom.Json);
+            Debug.Log($"Gotten json of room: {UserRoom.Json}");
             foreach (var wall in SelectedRoom.Walls)
             {
                 CreateWallFrom(wall);
