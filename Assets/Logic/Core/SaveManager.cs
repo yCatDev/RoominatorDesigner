@@ -7,7 +7,7 @@ namespace Logic.Core
 {
     public class SaveManager : MonoBehaviour
     {
-        [SerializeField] private string json;
+        [SerializeField] private ScreenshotMaker screenshotMaker;
 
         [DllImport("__Internal")]
         private static extern void SaveRoom(string userId, string json);
@@ -16,8 +16,10 @@ namespace Logic.Core
         {
             var userId = CoreManager.Instance.UserId;
             CoreManager.Instance.UserRoom.Json = JsonConvert.SerializeObject(CoreManager.Instance.SelectedRoom);
+            CoreManager.Instance.UserRoom.Preview = screenshotMaker.ScreenshotForPreview();
             var json =  JsonConvert.SerializeObject(CoreManager.Instance.UserRoom);
             Debug.Log(json);
+            
             SaveRoom(userId, json);
         }
 
@@ -33,11 +35,6 @@ namespace Logic.Core
             Debug.Log($"Gotten json: {json}");
             CoreManager.Instance.RestoreRoom();
             CoreManager.Instance.Loaded = true;
-        }
-
-        public void TestLoad()
-        {
-            LoadRoom(json);
         }
         
     }

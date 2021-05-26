@@ -14,7 +14,31 @@ namespace Logic.Designer
             m_camera = GetComponent<Camera>();
         }
 
-        public void ScreenshotRoom()
+
+        public byte[] ScreenshotForPreview()
+        {
+            
+            FitToRoom();
+            
+            RenderTexture currentRT = RenderTexture.active;
+            RenderTexture.active = m_camera.targetTexture = new RenderTexture(1920, 1080, 32, RenderTextureFormat.ARGB32);
+           
+            m_camera.Render();
+            Texture2D Image = new Texture2D(m_camera.targetTexture.width, m_camera.targetTexture.height,
+                TextureFormat.ARGB32, false);
+            Image.ReadPixels(new Rect(0, 0, m_camera.targetTexture.width, m_camera.targetTexture.height), 0, 0);
+            Image.Apply();
+            RenderTexture.active = currentRT;
+ 
+            var bytes = Image.EncodeToPNG();
+            Destroy(Image);
+            #if UNITY_EDITOR
+            File.WriteAllBytes(Application.dataPath + "/" + "test" + ".png", bytes);
+            #endif
+            return bytes;
+        }
+        
+        public void ScreenshotRoomForExport()
         {
             FitToRoom();
             
