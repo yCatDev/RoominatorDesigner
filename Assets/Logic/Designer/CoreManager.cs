@@ -7,6 +7,7 @@ using Logic.Core;
 using Logic.Designer;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Logic
 {
@@ -20,6 +21,7 @@ namespace Logic
         public string UserId;
         public UserRoom UserRoom;
         public bool Loaded = false;
+        [SerializeField] public Toggle EditToggle;
 
         private void Awake()
         {
@@ -112,6 +114,28 @@ namespace Logic
             return contrl;
         }
 
+
+        public void DeleteAll()
+        {
+            foreach (var el in GameObject.FindObjectsOfType<FurnitureControl>())
+            {
+                el.Delete();
+            }
+            foreach (var el in GameObject.FindObjectsOfType<WindowControl>())
+            {
+                el.Delete();
+            }
+            foreach (var el in GameObject.FindObjectsOfType<DoorControl>())
+            {
+                el.Delete();
+            }
+            foreach (var el in GameObject.FindObjectsOfType<WallControl>())
+            {
+                el.Delete();
+            }
+            
+        }
+        
         public void RestoreRoom()
         {
             SelectedRoom = JsonConvert.DeserializeObject<Room>(UserRoom.Json);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3030242211406528231}
   - component: {fileID: 2354135219653304160}
   - component: {fileID: -4104810873918528306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FurnitureShelf-Table-Round
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477bde0cc83d4dc2ad634819e93ef9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSideMatter: 0
   sphere: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &2354135219653304160
 BoxCollider:

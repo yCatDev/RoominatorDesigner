@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8816789318687317851}
   - component: {fileID: 8141808368558587612}
   - component: {fileID: 5118273543226718507}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FurnitureShelf-Table-Ellipse
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8150939678452025949}
   - component: {fileID: 8915984651729333210}
   - component: {fileID: 7948851319076199657}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FurnitureBadDouble
   m_TagString: Untagged
   m_Icon: {fileID: 0}

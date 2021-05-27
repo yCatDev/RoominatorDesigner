@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7760493768194108243}
   - component: {fileID: 6995439639569615572}
   - component: {fileID: -6958115054238510090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FurnitureCookingTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477bde0cc83d4dc2ad634819e93ef9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSideMatter: 0
   sphere: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6995439639569615572
 BoxCollider:

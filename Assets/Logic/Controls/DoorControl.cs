@@ -10,6 +10,7 @@ namespace Logic.Controls
     {
         
          [SerializeField] private SpriteRenderer renderer;
+         [SerializeField] private Sprite doorSpriteVertical,doorSpriteHorizontal;
         private BoxCollider m_collider;
         private Door m_door;
         private float m_width, m_height;
@@ -82,9 +83,15 @@ namespace Logic.Controls
                     res = (m_baseSize - m_baseSize * (m_scale / 10f));
 
                 if (m_door.Direction == Direction.Horizontal)
+                {
+                    renderer.sprite = doorSpriteHorizontal;
                     m_door.Width = res;
+                }
                 else
+                {
+                    renderer.sprite = doorSpriteVertical;
                     m_door.Height = res;
+                }
             }
         }
 
@@ -93,6 +100,7 @@ namespace Logic.Controls
             var t = new GameObject().transform;
             if (m_door.Direction == Direction.Horizontal)
             {
+                renderer.sprite = doorSpriteHorizontal;
                 m_dragPoints[0] = t.position = transform.position + Vector3.up * (m_width / 2f);
                 using (Draw.ingame.InLocalSpace(t))
                 {
@@ -107,6 +115,7 @@ namespace Logic.Controls
             }
             else
             {
+                renderer.sprite = doorSpriteVertical;
                 m_dragPoints[0] = t.position = transform.position + Vector3.right * (m_height / 2f);
                 using (Draw.ingame.InLocalSpace(t))
                 {

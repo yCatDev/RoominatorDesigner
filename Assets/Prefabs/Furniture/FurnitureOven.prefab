@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 177929672053286486}
   - component: {fileID: 638990695353321425}
   - component: {fileID: 8621700860838560268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FurnitureOven
   m_TagString: Untagged
   m_Icon: {fileID: 0}

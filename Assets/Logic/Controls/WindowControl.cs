@@ -10,6 +10,7 @@ namespace Logic.Controls
     public class WindowControl : ControlBehaviour
     {
         [SerializeField] private SpriteRenderer renderer;
+        [SerializeField] private Sprite doorSpriteVertical,doorSpriteHorizontal;    
         private BoxCollider m_collider;
         private Window m_window;
         private float m_width, m_height;
@@ -82,9 +83,15 @@ namespace Logic.Controls
                     res = (m_baseSize - m_baseSize * (m_scale / 10f));
 
                 if (m_window.Direction == Direction.Horizontal)
+                {
+                    renderer.sprite = doorSpriteHorizontal;
                     m_window.Width = res;
+                }
                 else
+                {
+                    renderer.sprite = doorSpriteVertical;
                     m_window.Height = res;
+                }
             }
         }
 
@@ -149,6 +156,16 @@ namespace Logic.Controls
         public void SetWindow(Window window)
         {
             m_window = window;
+            if (m_window.Direction == Direction.Horizontal)
+            {
+                renderer.sprite = doorSpriteHorizontal;
+             
+            }
+            else
+            {
+                renderer.sprite = doorSpriteVertical;
+             
+            }
         }
     }
 }

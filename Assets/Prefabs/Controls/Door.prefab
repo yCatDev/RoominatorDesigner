@@ -111,3 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 5782757933724290269}
+  doorSpriteVertical: {fileID: 3286163911610860551, guid: a7f6f52a836139048953c7c6a212b856,
+    type: 3}
+  doorSpriteHorizontal: {fileID: 3286163911610860551, guid: abad6e126e62d8c478a2e7b315002333,
+    type: 3}

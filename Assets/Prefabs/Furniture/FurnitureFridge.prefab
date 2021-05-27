@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7453646502515792154}
   - component: {fileID: 7914698930441762973}
   - component: {fileID: -3261164518351273082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FurnitureFridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51da1bbbde454b049df923f8ff13b455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sphere: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   renderer: {fileID: 5782757933724290269}
+  doorSpriteVertical: {fileID: 3286163911610860551, guid: fce1094fd4472104fa057db0bb2d8100,
+    type: 3}
+  doorSpriteHorizontal: {fileID: 3286163911610860551, guid: 980040f3508fe2a41812f561b221966e,
+    type: 3}
 --- !u!65 &4182575205674016030
 BoxCollider:
   m_ObjectHideFlags: 0

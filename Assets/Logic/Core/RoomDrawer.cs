@@ -55,20 +55,25 @@ namespace Logic.Core
         
         private void Update()
         {
-            //var points = new HashSet<Vector2>();
+            
             var uniPoints = new HashSet<Vector2>();
             var points = new List<Vector2>();
 
-            if (!CoreManager.Instance.SelectedRoom.IsRoomShapeCorrect) return;
+            
+            if (!CoreManager.Instance.SelectedRoom.IsRoomShapeCorrect)
+            {
+                m_meshFilter.mesh = null;
+                m_meshCollider.sharedMesh = null;
+                return;
+            }
+
 
             foreach (var wall in CoreManager.Instance.SelectedRoom.Walls)
             {
-                //if (!uniPoints.Contains(wall.StartPoint.Value))
                 uniPoints.Add(wall.StartPoint.Value);
-                //if (!uniPoints.Contains(wall.EndPoint.Value))
                 uniPoints.Add(wall.EndPoint.Value);
             }
-
+            
             var targetPoint = GetClosestPoint(uniPoints);
             var walls = CoreManager.Instance.SelectedRoom.Walls;
             for (int i = 0; i < walls.Count; i++)

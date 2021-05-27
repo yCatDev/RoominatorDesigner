@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6676980344113506442}
   - component: {fileID: 6201283521823820045}
   - component: {fileID: -4088975722019683988}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FurnitureShelf-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

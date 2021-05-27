@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8377184657383673888}
   - component: {fileID: 9144481739263488423}
   - component: {fileID: -464642680585263850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FurnitureBathroomPan
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2871365216267466858}
   - component: {fileID: 3278382817501026797}
   - component: {fileID: -4589355227811942493}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FurnitureShelf-Washmachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
