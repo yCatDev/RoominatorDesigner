@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5567565685157577208}
   - component: {fileID: 6881898760941516227}
   - component: {fileID: 6135994826362115140}
+  - component: {fileID: 751449620812995056}
   m_Layer: 0
-  m_Name: FurnitureSofa
+  m_Name: FurnitureSofa-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477bde0cc83d4dc2ad634819e93ef9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSideMatter: 1
   sphere: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6135994826362115140
 BoxCollider:
@@ -111,3 +113,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4303, y: 1.4025999, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &751449620812995056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551557087707592216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fffefafd4920a43bae40d15095a8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,6 +5,29 @@ namespace Logic.Core
     public static class Helpers
     {
         
+        public static bool LineSegmentIntersection (Vector2 line1point1, Vector2 line1point2, Vector2 line2point1, Vector2 line2point2) {
+ 
+            Vector2 a = line1point2 - line1point1;
+            Vector2 b = line2point1 - line2point2;
+            Vector2 c = line1point1 - line2point1;
+ 
+            float alphaNumerator = b.y * c.x - b.x * c.y;
+            float betaNumerator  = a.x * c.y - a.y * c.x;
+            float denominator    = a.y * b.x - a.x * b.y;
+ 
+            if (denominator == 0) {
+                return false;
+            } else if (denominator > 0) {
+                if (alphaNumerator < 0 || alphaNumerator > denominator || betaNumerator < 0 || betaNumerator > denominator) {
+                    return false;
+                }
+            } else if (alphaNumerator > 0 || alphaNumerator < denominator || betaNumerator > 0 || betaNumerator < denominator) {
+                return false;
+            }
+            return true;
+        }
+
+        
         public static float Diff(Vector2 a, Vector2 b)
         {
             var num1 = b.x - a.x;

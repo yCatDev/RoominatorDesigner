@@ -39,6 +39,7 @@ namespace Logic.Controls
         public override void Delete()
         {
             CoreManager.Instance.SelectedRoom.Windows.Remove(m_window);
+            Destroy(gameObject);
         }
 
         private void Update()

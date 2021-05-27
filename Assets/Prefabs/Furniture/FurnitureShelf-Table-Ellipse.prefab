@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7537084193750559584}
   - component: {fileID: 8816789318687317851}
   - component: {fileID: 8141808368558587612}
+  - component: {fileID: 5118273543226718507}
   m_Layer: 0
   m_Name: FurnitureShelf-Table-Ellipse
   m_TagString: Untagged
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477bde0cc83d4dc2ad634819e93ef9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSideMatter: 0
   sphere: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &8141808368558587612
 BoxCollider:
@@ -109,5 +111,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.9639, y: 2.4671001, z: 0.2}
+  m_Size: {x: 2.467, y: 5.964, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5118273543226718507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3482075987573906560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fffefafd4920a43bae40d15095a8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4663113217156402298}
   - component: {fileID: 5941419763844462657}
   - component: {fileID: 6400228001644239302}
+  - component: {fileID: -400680503799980096}
   m_Layer: 0
   m_Name: FurnitureBathroom
   m_TagString: Untagged
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477bde0cc83d4dc2ad634819e93ef9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSideMatter: 1
   sphere: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6400228001644239302
 BoxCollider:
@@ -109,5 +111,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.4679003, y: 2.0397, z: 0.2}
+  m_Size: {x: 2.0400002, y: 4.4680004, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-400680503799980096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764706604717800346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fffefafd4920a43bae40d15095a8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

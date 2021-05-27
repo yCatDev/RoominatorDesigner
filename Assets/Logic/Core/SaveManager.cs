@@ -7,6 +7,9 @@ namespace Logic.Core
 {
     public class SaveManager : MonoBehaviour
     {
+        #if UNITY_EDITOR
+        [SerializeField] private string testJson;
+        #endif
         [SerializeField] private ScreenshotMaker screenshotMaker;
 
         [DllImport("__Internal")]
@@ -36,6 +39,13 @@ namespace Logic.Core
             CoreManager.Instance.RestoreRoom();
             CoreManager.Instance.Loaded = true;
         }
+
+#if UNITY_EDITOR
+        public void TestLoad()
+        {
+            LoadRoom(testJson);
+        }
+        #endif
         
     }
 }

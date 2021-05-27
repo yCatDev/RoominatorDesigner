@@ -1,7 +1,9 @@
 ﻿using System;
 using Drawing;
 using Logic.Core;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Logic.Controls
 {
@@ -11,18 +13,21 @@ namespace Logic.Controls
 
         private Vector2[] m_dragDots = new Vector2[4];
         private Vector2 m_rotateDot;
+        private FitterID m_fitterID;
 
+        [SerializeField] private bool isSideMatter = false;
         private float m_scale = 3;
         [SerializeField] private Mesh sphere;
         private Vector3 m_offset, m_dragOffset;
         private bool m_captured;
-        private Vector3 m_baseScale = new Vector3(3,3,3);
+        private Vector3 m_baseScale = new Vector3(3, 3, 3);
         private SpriteRenderer m_spr;
         private Furniture m_furniture;
         private BoxCollider m_collider;
 
         private void Start()
         {
+            m_fitterID = GetComponent<FitterID>();
             Setup();
             m_collider = GetComponent<BoxCollider>();
         }
@@ -53,7 +58,11 @@ namespace Logic.Controls
 
         private void UpdateCoords()
         {
-           
+            m_furniture.UpSide = transform.position + transform.up*100;
+            m_furniture.DownSide = transform.position - transform.up*100;
+            m_furniture.RightSide = transform.position + transform.right*100;
+            m_furniture.LeftSide = transform.position - transform.right*100;
+
             m_width = m_spr.bounds.size.x / 2f;
             m_height = m_spr.bounds.size.y / 2f;
             var x = m_width;
@@ -70,6 +79,7 @@ namespace Logic.Controls
         public override void Delete()
         {
             CoreManager.Instance.SelectedRoom.Furnitures.Remove(m_furniture);
+            Destroy(gameObject);
         }
 
         public override void UpdateOnSelected()
@@ -100,31 +110,37 @@ namespace Logic.Controls
         }
 
 
-      
-        
+        /*
+        private void OnDrawGizmosSelected()
+        {
+            Debug.Log(m_furniture.Bounds.size);
+        }
+        */
+
         private void Update()
         {
             m_furniture.Update(transform.position, transform.localScale, transform.localEulerAngles);
+            m_furniture.Bounds = m_spr.bounds;
+            m_furniture.Bounds.size = new Vector2(m_furniture.Bounds.size.y, m_furniture.Bounds.size.x);
             UpdateCoords();
             //if (!Input.GetMouseButtonDown(0)) return;
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (Input.GetMouseButtonDown(0) && Vector2.Distance(mousePosition, m_rotateDot)<=1)
+            if (Input.GetMouseButtonDown(0) && Vector2.Distance(mousePosition, m_rotateDot) <= 1)
             {
-                transform.localEulerAngles += Vector3.forward*90;
+                transform.localEulerAngles += Vector3.forward * 90;
             }
-            
+
             if (!Input.GetMouseButton(0))
             {
                 m_captured = false;
-                return; 
+                return;
             }
 
-            
+
             if (m_captured)
             {
-                
-                m_scale = Helpers.Diff(m_dragOffset,mousePosition);
-                transform.localScale = m_baseScale+m_baseScale * (m_scale / 10f);
+                m_scale = Helpers.Diff(m_dragOffset, mousePosition);
+                transform.localScale = m_baseScale + m_baseScale * (m_scale / 10f);
             }
             else
             {
@@ -138,15 +154,10 @@ namespace Logic.Controls
                         return;
                     }
                 }
-
-               
             }
-
-          
-
         }
 
-       
+
         public override void UpdateOnDrag(Vector3 mousePosition)
         {
             if (m_captured) return;
@@ -154,11 +165,15 @@ namespace Logic.Controls
             pos.z = 0;
             transform.position = pos;
         }
-        
+
 
         public void SetFurniture(Furniture furniture)
         {
             m_furniture = furniture;
+            m_furniture.Name = transform.name;
+            m_furniture.SideMatter = isSideMatter;
+            m_fitterID = GetComponent<FitterID>();
+            m_fitterID.Init(furniture);
         }
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace Logic.Core
 {
-    
     [Serializable]
     public class Room
     {
@@ -14,6 +13,8 @@ namespace Logic.Core
         public List<Window> Windows;
         public List<Door> Doors;
 
+     
+
         public Room()
         {
             Walls = new List<Wall>();
@@ -21,7 +22,6 @@ namespace Logic.Core
             Windows = new List<Window>();
             Doors = new List<Door>();
         }
-
 
 
         public void AlignRoomWalls()
@@ -36,7 +36,7 @@ namespace Logic.Core
                     wall.StartPoint.Value.y = wall.EndPoint.Value.y;
             }
         }
-        
+
         public void AlignRoom()
         {
             if (Walls.Count < 2)
@@ -94,14 +94,14 @@ namespace Logic.Core
 
                 foreach (var i in arr)
                 {
-                    if (i%2>0)
+                    if (i % 2 > 0)
                         return false;
                 }
 
                 return true;
             }
         }
-        
+
         static bool IsPrime(int n)
         {
             // Corner case
@@ -115,6 +115,5 @@ namespace Logic.Core
 
             return true;
         }
-        
     }
 }
